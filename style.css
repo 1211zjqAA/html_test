@@ -1,0 +1,482 @@
+/* 全局样式重置和基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    background-color: #0a0b0e;  /* 深色背景 */
+    color: #e5e7eb;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(25, 130, 196, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(100, 55, 190, 0.1) 0%, transparent 40%);
+    display: flex;
+}
+
+/* 头部样式 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    padding: 20px;
+    background: #1a1a1a;  /* 深色背景 */
+    text-align: center;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #ffffff;  /* 标题文字改为白色 */
+}
+
+/* 导航栏样式 */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;  /* 深色分隔线 */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ffffff;  /* 链接文字改为白色 */
+    display: block;
+    transition: all 0.3s ease;  /* 添加过渡效果 */
+}
+
+.main-nav a:hover {
+    color: #00a8ff;  /* 鼠标悬停时的颜色 */
+    background: #2c2c2c;  /* 悬停时的背景色 */
+    padding-left: 25px;  /* 悬停时稍微缩进 */
+}
+
+/* 搜索工具栏样式 */
+.search-tools {
+    background: rgba(16, 18, 27, 0.8);  /* 半透明深色背景 */
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tool-section {
+    margin-bottom: 2rem;
+}
+
+.tool-section:last-child {
+    margin-bottom: 0;
+}
+
+.tool-section h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.tool-section h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 2px;
+}
+
+.tool-section ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tool-section a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tool-section a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 主要内容区域样式 */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category {
+    margin-bottom: 3rem;
+}
+
+.category h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.category h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 2px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: rgba(16, 18, 27, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 198, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 198, 255, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.card p {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.card-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(16, 18, 27, 0.8);
+    color: #9ca3af;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-tools {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .tool-section ul {
+        flex-direction: column;
+    }
+    
+    .tool-section a {
+        display: block;
+        text-align: center;
+    }
+    
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0b0e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d3748;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4a5568;
+}
+
+/* 添加霓虹光效果 */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 198, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 198, 255, 0.2);
+    }
+}
+
+.card:hover {
+    animation: glow 2s infinite;
+}
+
+/* 为不同类别添加特定的强调色 */
+#ai-models .card-link { background: linear-gradient(135deg, #FF6B6B, #FF8E53); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+#ai-prompts .card-link { background: linear-gradient(135deg, #4facfe, #00f2fe); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+#ai-text .card-link { background: linear-gradient(135deg, #43e97b, #38f9d7); color: #000000; }
+#ai-drawing .card-link { background: linear-gradient(135deg, #fa709a, #fee140); color: #000000; }
+#ai-news .card-link { background: linear-gradient(135deg, #30cfd0, #330867); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+#ai-design .card-link { background: linear-gradient(135deg, #a18cd1, #fbc2eb); color: #000000; }
+#ai-video .card-link { background: linear-gradient(135deg, #f093fb, #f5576c); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+#ai-ppt .card-link { background: linear-gradient(135deg, #fad0c4, #ffd1ff); color: #000000; }
+#ai-mindmap .card-link { background: linear-gradient(135deg, #84fab0, #8fd3f4); color: #000000; }
+#ai-resume .card-link { background: linear-gradient(135deg, #a6c0fe, #f68084); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+#ai-translate .card-link { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); color: #000000; }
+#ai-novel .card-link { background: linear-gradient(135deg, #d4fc79, #96e6a1); color: #000000; }
+#trending .card-link { background: linear-gradient(135deg, #17d576, #0fbcaa); color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+
+/* 添加卡片计数器 */
+.category {
+    counter-reset: card-counter;
+}
+
+.card {
+    counter-increment: card-counter;
+}
+
+.card h3::before {
+    content: counter(card-counter);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: normal;
+}
+
+/* 响应式布局优化 */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .category h2 {
+        font-size: 1.3rem;
+    }
+    
+    .card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* 添加加载动画 */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: cardFadeIn 0.5s ease forwards;
+}
+
+.card:nth-child(n) {
+    animation-delay: calc(0.1s * var(--card-index, 0));
+}
+
+/* 优化滚动体验 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 返回顶部按钮 */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+/* 添加分类标题装饰 */
+.category h2 {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.category h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, currentColor, transparent);
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 80px; /* header 高度 */
+    left: 0;
+    background: #1a1a1a;  /* 深色背景 */
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    flex: 1;
+    margin-left: 200px; /* 侧边栏宽度 */
+    padding: 20px;
+}
+
+/* 为侧边栏添加滚动条样式（可选） */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.section-icon {
+    width: 24px;              /* 统一图标大小 */
+    height: 24px;
+    vertical-align: middle;   /* 垂直对齐 */
+    margin-right: 8px;        /* 图标和文字之间的间距 */
+    object-fit: contain;      /* 保持图标比例 */
+}
+
+.category h2 {
+    display: flex;           /* 使用flex布局 */
+    align-items: center;     /* 垂直居中对齐 */
+    gap: 8px;               /* 图标和文字之间的间距 */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
